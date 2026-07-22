@@ -356,6 +356,12 @@ The following modules are currently under development:
 \---
 
 
+## 🗄 Database
+
+The SQL Server database creation script is available in the `Database` folder.
+
+- Database: `GolpaMotor.sql`
+
 
 \# 👩‍💻 Developer
 
