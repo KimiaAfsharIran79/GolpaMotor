@@ -312,8 +312,45 @@ The following modules are currently under development:
 
 
 
-Screenshots will be added soon.
+## Dashboard
 
+![Dashboard](screenshots/dashboard.jpg)
+
+---
+
+## Product Management
+
+![Products](screenshots/products.jpg)
+
+---
+
+## Add Product
+
+![Add Product](screenshots/add-product-modal.jpg)
+
+---
+
+## Warranty Management
+
+![Warranty](screenshots/warranty.jpg)
+
+---
+
+## Warranty Registration
+
+![Warranty Registration](screenshots/register-warranty.jpg)
+
+---
+
+## Login
+
+![Login](screenshots/login.jpg)
+
+---
+
+## User Registration
+
+![User Registration](screenshots/register-user.jpg)
 
 
 \---
