@@ -1,0 +1,73 @@
+﻿@using Framework.Common.Extensions
+@model DomainModel.ViewModels.Support.TicketDetailsModel
+
+@{
+    ViewData["Title"] = "جزئیات تیکت";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Support.css" />
+}
+
+<div class="support-page">
+
+    <div class="support-card">
+
+        <h2 class="support-title">
+            جزئیات تیکت
+        </h2>
+
+        <div class="mb-4">
+
+            <h5>
+                @Model.Title
+            </h5>
+
+            <div class="text-muted mt-2">
+                تاریخ ثبت:
+                @Model.CreateDate.ToPersianDateTime()
+            </div>
+
+        </div>
+
+        <div class="support-info">
+
+            <strong>متن تیکت:</strong>
+
+            <hr />
+
+            @Model.Message
+
+        </div>
+
+        @if (Model.IsAnswered)
+        {
+            <div class="alert alert-success mt-4">
+
+                <h6>پاسخ پشتیبانی</h6>
+
+                <hr />
+
+                @Model.Answer
+
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning mt-4">
+
+                این تیکت هنوز پاسخ داده نشده است.
+
+            </div>
+        }
+
+        <a asp-action="MyTickets"
+           class="btn btn-secondary mt-3">
+
+            بازگشت
+
+        </a>
+
+    </div>
+
+</div>

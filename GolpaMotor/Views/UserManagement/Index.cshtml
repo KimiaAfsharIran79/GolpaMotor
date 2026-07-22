@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "مدیریت کاربران";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/css/UserManagement.css" rel="stylesheet" />
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <div class="page-title">مدیریت کاربران</div>
+            <div class="page-subtitle">مدیریت کاربران سیستم</div>
+        </div>
+
+        <button class="btn btn-primary px-4 py-2"
+                data-bs-toggle="modal"
+                data-bs-target="#addUserModal">
+
+            <i class="fa fa-plus"></i>
+            کاربر جدید
+
+        </button>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-card">
+
+        <div class="section-title mb-4">
+            <i class="fa-solid fa-magnifying-glass text-success"></i>
+            جستجوی کاربران
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3 mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="نام">
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="نام خانوادگی">
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <input type="text"
+                       class="form-control"
+                       placeholder="شماره موبایل">
+            </div>
+
+            <div class="col-md-2 mb-3">
+
+                <select class="form-select">
+                    <option>همه وضعیت ها</option>
+                    <option>فعال</option>
+                    <option>غیرفعال</option>
+                </select>
+
+            </div>
+
+            <div class="col-md-1 mb-3">
+
+                <button class="btn btn-success w-100">
+                    <i class="fa fa-search"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Grid -->
+
+    <div id="dvList">
+
+        @await Component.InvokeAsync("UserList")
+
+    </div>
+
+</div>
+
+<!-- Modals -->
+
+<div id="dvModal"></div>
+
+@section Scripts
+{
+    <script src="~/js/UserManagement.js"></script>
+}

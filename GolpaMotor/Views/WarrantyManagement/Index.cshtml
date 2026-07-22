@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "مدیریت گارانتی ها";
+    Layout = "_AdminLayout";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/WarrantyManagement.css" />
+}
+
+
+<div class="container-fluid py-4">   
+
+    <div class="card-box p-4 mb-4">
+
+        <div class="section-title">
+            انتخاب محصول
+        </div>
+
+        @await Component.InvokeAsync("ProductSelector")
+
+    </div>
+
+    <!-- کارت ها -->
+    <div class="row g-4 flex-lg-row-reverse">
+
+        <!-- آپلود -->
+        <div class="col-lg-6">
+
+            <div class="card-box p-4">
+
+                <div class="section-title"> آپلود فایل اکسل </div>
+
+                <div class="upload-area">
+
+                    <img src="~/images/pics/excel.jpg" alt="excel" class="img-fluid mx-auto mb-3" style="width:70px;height:70px;">
+
+                    <p class="text-muted mb-4">
+                        فایل اکسل شامل شماره سریال و کد گارانتی را انتخاب کنید
+                    </p>
+
+                    @await Component.InvokeAsync("UploadExcel")
+
+                </div>
+
+            </div>
+
+        </div>       
+
+        @await Component.InvokeAsync("WarrantyCodeGenerator")
+
+    </div>
+
+    <!-- فیلتر -->
+    <div class="filter-box mt-4">
+
+        <div class="row g-3 align-items-center flex-row-reverse">
+
+            <div class="col-lg-3">
+
+                <button id="btnWarrantyFilter" class="btn btn-primary w-100">
+                    اعمال فیلتر
+                </button>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <select id="WarrantyStatus" class="form-select">
+                    <option value=""> همه وضعیت ها </option>
+                    <option value="false">فعال</option>
+                    <option value="true">ثبت شده</option>
+                </select>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <select id="WarrantyProduct" class="form-select">
+
+                    <option value=""> همه محصولات </option>
+
+                </select>
+
+            </div>
+
+            <div class="col-lg-3 position-relative">
+
+                <i class="fa-solid fa-magnifying-glass position-absolute text-secondary"
+                   style="top:50%; right:20px; transform:translateY(-50%); opacity:.4;">
+                </i>
+
+                <input id="WarrantySearch" class="form-control" style="padding-right:40px;" placeholder="جستجوی سریال یا گارانتی">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- گرید _ لیست کارت های گارانتی -->
+    <div id="WarrantyGrid"></div>
+
+</div>
+
+@section Scripts
+{
+    <script src="~/js/WarrantyCards.js"></script>
+}
+

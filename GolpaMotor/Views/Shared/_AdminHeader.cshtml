@@ -1,0 +1,64 @@
+@using Framework.Common.Extensions
+@using DomainModel.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<div class="topbar">
+
+    <div class="topbar-wrapper">
+
+        @* <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="form-control" placeholder="جستجو در محصولات، سفارشات، گارانتی..." />
+        </div> *@
+        <div class="persian-date-box">
+
+            <div class="date-icon">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+
+            <div class="date-info">
+
+                <div class="date-title">
+                    امروز
+                </div>
+
+                <div class="date-value">
+                    @DateTime.Now.ToPersianDateTime()
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <div class="notification-btn">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notification-count"> 12 </span>
+            </div>
+
+            <div class="profile-box">
+                <div>
+                    <div class="profile-name">
+                        @(user?.FirstName) @(user?.LastName)
+                    </div>
+                    <div class="profile-role"> مدیر سیستم </div>
+                </div>
+                <img src="~/images/pics/admin.jpg" class="profile-image" alt="admin">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

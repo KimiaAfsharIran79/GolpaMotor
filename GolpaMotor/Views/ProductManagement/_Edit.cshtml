@@ -1,0 +1,72 @@
+﻿@model GolpaMotor.Models.ViewModels.ProductManagement.ProductAddEditViewModel
+@using GolpaMotor.Helpers
+
+<form id="frmEdit" enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+
+    <input asp-for="ProductID" type="hidden" />
+
+    <input asp-for="ExistingImageUrl" type="hidden" />
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <label>نام محصول</label>
+
+            <input asp-for="ProductName" class="form-control" />
+
+        </div>
+
+        <div class="col-md-6">
+
+            <label>امتیاز محصول</label>
+
+            <input asp-for="ProductPoint" class="form-control" />
+
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+
+        <label>توضیحات</label>
+
+        <textarea asp-for="Description" class="form-control"></textarea>
+
+    </div>
+
+    <div class="mt-3">
+
+        @* <img src="@Model.ExistingImageUrl" class="img-thumbnail" width="150" /> *@
+        <div class="text-center mt-3">
+
+            <img id="imgPreviewEdit" class="img-fluid img-thumbnail preview-image"
+                 src="@ImageHelper.FixProduct(Model.ExistingImageUrl)"/>
+
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+
+        <input asp-for="ImageFile" type="file" id="ImageFileEdit" class="form-control" />
+
+    </div>
+
+    <div class="mt-3">
+
+        <input asp-for="IsAvailable" />
+
+        <label asp-for="IsAvailable">فعال </label>
+
+    </div>
+
+    <div class="mt-4">
+
+        <button type="submit" class="btn btn-warning"> ویرایش </button>
+
+    </div>
+
+</form>

@@ -1,0 +1,21 @@
+@page
+@model GolpaMotor.Areas.Identity.Pages.Account.AdminProfileModel
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "پروفایل مدیر";
+}
+
+<section class="content-header">
+    <h1>پروفایل ادمین</h1>
+</section>
+
+<section class="content">
+    @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+    {
+        @await Component.InvokeAsync("UserList")
+    }
+    else
+    {
+        <div class="alert alert-warning">دسترسی فقط برای مدیران مجاز است.</div>
+    }
+</section>

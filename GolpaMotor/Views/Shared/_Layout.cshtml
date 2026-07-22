@@ -1,0 +1,160 @@
+﻿@using Framework.Common.Extensions
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewData["Title"] - گلپا موتور</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap-5.3.8-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/fonts/fontawesome-free-6.7.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="~/fonts/vazirmatn-master/Vazirmatn-font-face.css" />
+    <link rel="stylesheet" href="~/css/Layout.css" />
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+
+            <div class="top-bar-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                @DateTime.Now.ToPersianDate()
+            </div>
+
+            <div class="top-bar-contact">
+                <i class="fa-solid fa-headset"></i>
+                <a asp-controller="Support" asp-action="Index" class="support-link">
+                    پشتیبانی مشتریان
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- نوبار -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+
+        <div class="container">
+
+            <a asp-controller="Home" asp-action="Index" class="logo-wrapper">
+                <img src="~/images/pics/logo.png" alt="گلپا موتور" class="logo-img">
+            </a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+                @* <span class="navbar-toggler-icon"></span> *@
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="nav-link"> خانه </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a asp-controller="Product" asp-action="Index" class="nav-link"> محصولات </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"> دسته‌بندی </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"> تماس با ما </a>
+                    </li>
+
+                </ul>
+
+                @* <div class="search-box">
+                    <input class="form-control" placeholder="جستجوی قطعه خودرو..." />
+                    <button class="btn btn-primary">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div> *@
+                <form asp-controller="Product"
+                      asp-action="Index"
+                      method="get"
+                      class="search-box">
+
+                    <input type="text"
+                           name="search"
+                           class="form-control"
+                           placeholder="جستجوی قطعه خودرو..." />
+
+                    <button type="submit"
+                            class="btn btn-primary">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                </form>
+
+                <div class="warranty-area">
+                    <a asp-controller="WarrantyManagement" asp-action="Register" class="btn btn-success warranty-btn">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        ثبت گارانتی
+                    </a>
+                </div>
+
+                <div class="auth-buttons">
+                    <partial name="_LoginPartial" />
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="container mt-3">
+
+            <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+
+                <i class="fa-solid fa-circle-check me-2"></i>
+
+                @TempData["SuccessMessage"]
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert"> </button>
+
+            </div>
+
+        </div>
+    }
+
+    <!-- محتوای صفحات -->
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h5>Golpa Motor</h5>
+            <p>© تمامی حقوق محفوظ است</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

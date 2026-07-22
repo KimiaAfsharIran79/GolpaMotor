@@ -1,0 +1,111 @@
+﻿@model DomainModel.ViewModels.Warranty.WarrantyListComplexModel
+
+<div class="table-box mt-4">
+
+    <table class="table text-center align-middle mb-0">
+
+        <thead>
+            <tr>
+                <th>ردیف</th>
+                <th>محصول</th>
+                <th>سریال</th>
+                <th>کد گارانتی</th>
+                <th>وضعیت</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @{
+                int row = 1;
+            }
+
+            @foreach (var item in Model.warrantyList)
+            {
+                <tr>
+
+                    <td>@row</td>
+
+                    <td>@item.ProductName</td>
+
+                    <td>@item.SerialNumber</td>
+
+                    <td>@item.WarrantyCode</td>
+
+                    <td>
+
+                        @if (item.IsActive)
+                        {
+                            <span class="status-active">
+                                فعال
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="status-inactive">
+                                غیرفعال
+                            </span>
+                        }
+
+                    </td>
+
+                </tr>
+
+                row++;
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+@* صفحه بندی *@
+<div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-2 text-muted small">
+
+    <div>
+        نمایش
+        @(Model.sm.PageIndex* Model.sm.PageSize + 1)
+        تا
+        @(Math.Min((Model.sm.PageIndex + 1) * Model.sm.PageSize, Model.sm.RecordCount))
+        از
+        @Model.sm.RecordCount
+        مورد
+    </div>
+
+    <nav>
+        <ul class="pagination mb-0">
+
+            <li class="page-item @(Model.sm.PageIndex == 0 ? "disabled" : "")">
+                <a class="page-link"
+                   href="javascript:void(0)"
+                   onclick="LoadWarrantyPage(@(Model.sm.PageIndex - 1))">
+                    قبلی
+                </a>
+            </li>
+
+            @for (int i = 0; i < Model.sm.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.sm.PageIndex ? "active" : "")">
+
+                    <a class="page-link"
+                       href="javascript:void(0)"
+                       onclick="LoadWarrantyPage(@i)">
+                        @(i + 1)
+                    </a>
+
+                </li>
+            }
+
+            <li class="page-item @(Model.sm.PageIndex >= Model.sm.PageCount - 1 ? "disabled" : "")">
+                <a class="page-link"
+                   href="javascript:void(0)"
+                   onclick="LoadWarrantyPage(@(Model.sm.PageIndex + 1))">
+                    بعدی
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+</div>

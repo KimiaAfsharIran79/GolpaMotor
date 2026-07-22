@@ -1,0 +1,461 @@
+﻿body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #f6f8fc;
+}
+
+/* ======================
+   Top Bar   تاریخ فارسی
+====================== */
+
+.top-bar {
+    background: #1e3a8a;
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 0;
+}
+
+    .top-bar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.top-bar-date,
+.top-bar-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-bar i {
+    color: #fbbf24;
+}
+
+.support-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    .support-link:hover {
+        color: #fbbf24;
+    }
+
+
+/* ======================
+   Navbar
+====================== */
+.navbar {
+    background: #fff;
+    padding: 8px 0;
+}
+
+    .navbar-nav .nav-link {
+        font-weight: 500;
+        color: #333;
+        transition: .3s;
+        display: flex;
+        align-items: center;
+        height: 42px;
+        white-space: nowrap;
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #0d6efd;
+        }
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 25px;
+    margin-right: 25px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+.logo-wrapper {
+    flex-shrink: 0;
+}
+
+.logo-img {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 320px;
+    max-width: 520px;
+}
+
+    .search-box .form-control {
+        width: 100%;
+    }
+
+    .search-box .btn {
+        border-radius: 12px;
+    }
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    min-width: 280px;
+    justify-content: flex-end;
+}
+
+    .auth-buttons .btn {
+        border-radius: 12px;
+        font-weight: 600;
+    }
+
+    .auth-buttons form {
+        margin: 0;
+    }
+
+.user-info-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    padding: 0 16px;
+    height: 42px;
+    border-radius: 50px;
+    background: #f8fafc;
+    border: 1px solid #dbe3f0;
+    color: #0f172a;
+    text-decoration: none;
+}
+
+    .user-info-btn span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.login-btn,
+.logout-btn,
+.register-btn {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.logout-btn {
+    flex-shrink: 0;
+    min-width: 95px;
+}
+
+.login-btn,
+.register-btn {
+    min-width: 110px;
+}
+
+.user-info-btn:hover {
+    background: #04264e;
+    border-color: #04264e;
+    color: #fff;
+}
+
+/* ======================
+    ثبت کارت گارانتی
+    ====================== */
+.warranty-area {
+    flex-shrink: 0;
+    margin-inline: 8px;
+}
+
+.warranty-btn {
+    min-width: 120px;
+    height: 42px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ======================
+    Auth Pages
+====================== */
+
+.auth-page {
+    min-height: calc(100vh - 220px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 580px;
+    background: #fff;
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.auth-card-large {
+    max-width: 650px;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+    .auth-logo img {
+        height: 90px;
+        object-fit: contain;
+    }
+
+.auth-title {
+    text-align: center;
+    color: #1e3a8a;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.auth-input-group {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+    .auth-input-group label {
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #111827;
+        display: block;
+    }
+
+    .auth-input-group i {
+        color: #1e3a8a;
+        margin-left: 5px;
+    }
+
+    .auth-input-group .form-control {
+        border-radius: 12px;
+        height: 50px;
+    }
+
+.auth-remember {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.auth-btn {
+    width: 100%;
+    margin-top: 20px;
+    background: #1e3a8a;
+    color: #fff;
+    height: 55px;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+    .auth-btn:hover {
+        background: #172554;
+        color: #fff;
+    }
+
+.auth-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+    .auth-links a {
+        text-decoration: none;
+        color: #2563eb;
+    }
+
+        .auth-links a:hover {
+            color: #1e40af;
+        }
+
+@media(max-width:768px) {
+
+    .auth-card {
+        padding: 25px;
+        border-radius: 22px;
+    }
+
+    .auth-title {
+        font-size: 24px;
+    }
+}
+
+/* Hero */
+.hero {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+    /* تیترهای صفحه اصلی */
+
+    .hero h1 {
+        color: #1e3a8a;
+        font-weight: 800;
+    }
+
+.section-title {
+    color: #1e3a8a;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    position: relative;
+    padding-right: 15px;
+}
+
+    .section-title::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 4px;
+        width: 5px;
+        height: 32px;
+        background: #1e3a8a;
+        border-radius: 10px;
+    }
+
+
+/* Category */
+.category-card {
+    background: #fff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+    .category-card:hover {
+        background: #1e3a8a;
+        color: #fff;
+        transform: translateY(-5px);
+    }
+
+/* Product Card */
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+    .product-card:hover {
+        transform: translateY(-6px);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+.price {
+    color: #16a34a;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Features */
+.features {
+    background: #eef2ff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background: #1e3a8a;
+    color: white;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+    .footer h5 {
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 0;
+    }
+
+/*ریسپانسیو*/
+@media (max-width: 991px) {
+
+    .navbar-collapse {
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .search-box {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+        .search-box .form-control {
+            width: 100%;
+        }
+
+    .warranty-area {
+        margin: 10px 0;
+    }
+
+    .auth-buttons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

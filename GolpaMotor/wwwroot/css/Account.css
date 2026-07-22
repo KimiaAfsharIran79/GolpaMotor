@@ -1,0 +1,129 @@
+.account-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+.account-card {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.register-card {
+    max-width: 650px;
+}
+
+.logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.logo-mark img {
+    width: 80px;
+    height: auto;
+}
+
+.logo-text {
+    text-align: right;
+}
+
+.brand {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e3a8a;
+}
+
+.sub {
+    font-size: 14px;
+    color: #64748b;
+    letter-spacing: 3px;
+}
+
+.account-card h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+}
+
+.form-box {
+    margin-bottom: 18px;
+}
+
+    .form-box label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #374151;
+    }
+
+.input-wrap {
+    position: relative;
+}
+
+    .input-wrap .form-control,
+    .form-select {
+        height: 52px;
+        border-radius: 14px;
+    }
+
+.btn-submit {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 14px;
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+    .btn-submit i {
+        margin-left: 8px;
+    }
+
+/*    .btn-submit:hover {
+        background: #1d4ed8;
+    }*/
+
+.remember-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+    .links a,
+    .login-link a {
+        text-decoration: none;
+        color: #2563eb;
+        font-weight: 600;
+    }
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*.btn-submit i {
+    margin-left: 8px;
+}*/
+

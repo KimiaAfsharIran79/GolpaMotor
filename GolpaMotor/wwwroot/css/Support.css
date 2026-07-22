@@ -1,0 +1,82 @@
+﻿.support-page {
+    min-height: calc(100vh - 220px);
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+.support-card {
+    width: 100%;
+    max-width: 850px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.support-title {
+    text-align: center;
+    color: #1e3a8a;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.support-group {
+    margin-bottom: 20px;
+}
+
+    .support-group label {
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .support-group .form-control {
+        border-radius: 12px;
+    }
+
+    .support-group textarea {
+        min-height: 180px;
+        resize: vertical;
+    }
+
+.support-btn {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    background: #1e3a8a;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+    .support-btn:hover {
+        background: #172554;
+    }
+
+.support-info {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+/*جدول*/
+.table {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+    .table thead {
+        background: #1e3a8a;
+        color: #fff;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        padding: 14px;
+    }

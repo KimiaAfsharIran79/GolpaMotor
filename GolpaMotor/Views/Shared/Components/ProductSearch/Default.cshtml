@@ -1,0 +1,46 @@
+﻿@model DomainModel.ViewModels.Product.ProductSearchModel
+
+<form id="frmSearchProduct">
+
+    <div class="row g-3">
+
+        <div class="col-md-4">
+
+            <input asp-for="ProductName" class="form-control" placeholder="نام محصول" />
+
+        </div>
+
+        <div class="col-md-3">
+
+            <select asp-for="ProductPoint" class="form-select">
+
+                <option value="">همه امتیازها</option>
+
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+
+            </select>
+
+        </div>
+
+        <div class="col-md-3">
+            <select asp-for="IsAvailable" class="form-select">
+                <option value="">همه وضعیت‌ها</option>
+                <option value="true">موجود</option>
+                <option value="false">ناموجود</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+
+            <button type="button" id="btnSearchProduct" class="btn btn-primary w-100">
+                جستجو
+            </button>
+
+        </div>
+
+    </div>
+
+</form>

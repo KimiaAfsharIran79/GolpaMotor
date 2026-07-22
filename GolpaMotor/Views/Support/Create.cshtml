@@ -1,0 +1,69 @@
+﻿@model GolpaMotor.Models.ViewModels.Support.TicketCreateViewModel
+
+@{
+    ViewData["Title"] = "ثبت تیکت";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Support.css" />
+}
+
+<div class="support-page">
+
+    <div class="support-card">
+
+        <h2 class="support-title">
+            ثبت درخواست پشتیبانی
+        </h2>
+
+        <div class="support-info">
+            سوال، مشکل یا درخواست خود را برای تیم پشتیبانی ارسال کنید.
+        </div>
+
+        <form asp-action="Create" method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger mb-3">
+            </div>
+
+            <div class="support-group">
+
+                <label asp-for="Title"></label>
+
+                <input asp-for="Title"
+                       class="form-control" />
+
+                <span asp-validation-for="Title"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <div class="support-group">
+
+                <label asp-for="Message"></label>
+
+                <textarea asp-for="Message"
+                          class="form-control"
+                          rows="7"></textarea>
+
+                <span asp-validation-for="Message"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <button type="submit"
+                    class="support-btn">
+
+                ارسال تیکت
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "مدیریت محصولات";
+    Layout = "_AdminLayout";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/ProductManagement.css" />
+}
+
+<div class="container-fluid">
+
+    <form id="frmAntiForgery">
+        @Html.AntiForgeryToken()
+    </form>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <div class="page-title">مدیریت محصولات</div>
+            <div class="page-subtitle">مدیریت لوازم یدکی خودرو</div>
+        </div>
+
+        <button class="btn btn-primary px-4 py-2" id="btnAdd">
+            <i class="fa fa-plus"></i>
+            محصول جدید
+        </button>
+
+    </div>
+
+    @await Component.InvokeAsync("ProductStatistics")
+
+    <div class="search-card">
+
+        <div class="section-title mb-4">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            جستجوی محصولات
+        </div>
+
+        @await Component.InvokeAsync("ProductSearch")
+
+    </div>
+
+    <div class="main-card">
+
+        <div class="p-4">
+
+            <div class="section-title mb-3">
+                <i class="fa fa-table"></i>
+                لیست محصولات
+            </div>
+
+            <div id="ProductGrid"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@* مدال *@
+<div class="modal fade" id="productModal">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal">
+                </button>
+
+                <h5 class="modal-title"> مدیریت محصول </h5>
+
+            </div>
+
+            <div class="modal-body" id="modalBody">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script src="~/js/ProductManagement.js"></script>
+}

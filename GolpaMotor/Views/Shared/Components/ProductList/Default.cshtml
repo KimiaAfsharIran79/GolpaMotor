@@ -1,0 +1,144 @@
+﻿@model DomainModel.ViewModels.Product.ProductListComplexModel
+@using GolpaMotor.Helpers
+
+<div class="table-responsive">
+
+    <table class="table table-hover align-middle">
+
+        <thead>
+            <tr>
+                <th>عکس</th>
+                <th>نام محصول</th>
+                <th>امتیاز</th>
+                <th>وضعیت</th>
+                <th>جزئیات</th>
+                <th>ویرایش</th>
+                <th>حذف</th>
+                <th>حذف عکس</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var prod in Model.productList)
+            {
+                <tr>
+
+                    <td>
+                        <img src="@ImageHelper.FixProduct(prod.ImageUrl)"
+                             class="product-image" />
+                    </td>
+
+                    <td>@prod.ProductName</td>
+
+                    <td>
+                        @prod.ProductPoint
+                    </td>
+
+                    <td>
+                        @if (prod.IsAvailable)
+                        {
+                            <span class="status-active">
+                                موجود
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="status-inactive">
+                                ناموجود
+                            </span>
+                        }
+                    </td>
+
+                    <td>
+                        <button class="btn btn-sm btn-details btnDetails"
+                                data-id="@prod.ProductID">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-sm btn-edit btnEdit"
+                                data-id="@prod.ProductID">
+                            <i class="fa fa-pen"></i>
+                        </button>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-sm btn-delete btnDelete"
+                                data-id="@prod.ProductID">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-sm btn-remove-image btnRemovePicture"
+                                data-id="@prod.ProductID">
+                            <i class="fa fa-image"></i>
+                        </button>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+@* صفحه بندی *@
+<div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-2 text-muted small">
+
+    <div>
+        نمایش
+        @(Model.sm.PageIndex* Model.sm.PageSize + 1)
+        تا
+        @(Math.Min((Model.sm.PageIndex + 1) * Model.sm.PageSize, Model.sm.RecordCount))
+        از
+        @Model.sm.RecordCount
+        مورد
+    </div>
+
+
+    <nav>
+        <ul class="pagination mb-0">
+
+            <!-- قبلی -->
+            <li class="page-item @(Model.sm.PageIndex == 0 ? "disabled" : "")">
+                <a class="page-link"
+                   href="javascript:void(0)"
+                   onclick="LoadProductPage(@(Model.sm.PageIndex - 1))">
+                    قبلی
+                </a>
+            </li>
+
+
+            <!-- شماره صفحات -->
+            @for (int i = 0; i < Model.sm.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.sm.PageIndex ? "active" : "")">
+
+                    <a class="page-link"
+                       href="javascript:void(0)"
+                       onclick="LoadProductPage(@i)">
+                        @(i + 1)
+                    </a>
+
+                </li>
+            }
+
+
+            <!-- بعدی -->
+            <li class="page-item @(Model.sm.PageIndex >= Model.sm.PageCount - 1 ? "disabled" : "")">
+                <a class="page-link"
+                   href="javascript:void(0)"
+                   onclick="LoadProductPage(@(Model.sm.PageIndex + 1))">
+                    بعدی
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+</div>

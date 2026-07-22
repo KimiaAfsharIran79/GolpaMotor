@@ -1,0 +1,367 @@
+/* =========================
+    Base
+========================= */
+
+* {
+    font-family: 'Vazirmatn', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f6fb;
+    padding: 25px;
+    color: #1f2937;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+/* =========================
+    Header
+========================= */
+
+.page-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #1e3a8a;
+}
+
+.page-subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+/* =========================
+    Cards
+========================= */
+
+.main-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.search-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+
+.card {
+    border-radius: 16px !important;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+    Section Title
+========================= */
+
+.section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =========================
+    Inputs
+========================= */
+
+.form-control,
+.form-select {
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* =========================
+    Buttons
+========================= */
+
+.btn-primary {
+    background: #2563eb;
+    border: none;
+    border-radius: 12px;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-success {
+    background: #16a34a;
+    border: none;
+    border-radius: 12px;
+}
+
+.btn-success:hover {
+    background: #15803d;
+}
+
+.btn-secondary {
+    border-radius: 12px;
+}
+
+/* Action Buttons */
+
+.btn-details {
+    background: #0ea5e9;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.btn-edit {
+    background: #f59e0b;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.btn-delete {
+    background: #ef4444;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.btn-remove-image {
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+/* =========================
+    Table
+========================= */
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table thead th {
+    background: #1e3a8a !important;  
+    color: #ffffff !important;    
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    padding: 14px;
+}
+
+.table tbody tr {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.table tbody tr:hover {
+    transform: scale(1.01);
+    background: #f8fbff;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13px;
+    border: none;
+    padding: 14px;
+}
+
+
+.table-responsive {
+    overflow-x: hidden;
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+    Product Image
+========================= */
+.product-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* =========================
+    Preview Product Image
+========================= */
+.preview-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+
+/* =========================
+    Status
+========================= */
+
+.status-active {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-inactive {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================
+    Pagination
+========================= */
+
+.pagination {
+    gap: 6px;
+}
+
+
+.page-link {
+    border-radius: 10px !important;
+    border: none;
+    color: #1e3a8a;
+    background: #f1f5f9;
+    padding: 8px 14px;
+    transition: 0.3s;
+}
+
+.page-link:hover {
+    background: #1e3a8a;
+    color: white;
+}
+
+.page-item.active .page-link {
+    background: #1e3a8a;
+    color: white;
+    font-weight: bold;
+}
+
+.page-item.disabled .page-link {
+    opacity: 0.4;
+}
+
+/* =========================
+    Modal
+========================= */
+
+.modal-content {
+    border-radius: 18px;
+    border: none;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background: #1e3a8a;  
+    border-bottom: none;
+    color: #fff;    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+.modal-header .btn-close {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal-footer {
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-back {
+    background: #e5e7eb;
+    border: none;
+    color: #374151;
+    border-radius: 10px;
+}
+
+.btn-back:hover {
+    background: #d1d5db;
+}
+
+.btn-save {
+    background: #1e3a8a;
+    color: #fff;
+    border: none;
+
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: 600;
+
+    border-radius: 10px;
+}
+
+.btn-save:hover {
+    background: #172554;
+}
+
+/* =========================
+    Icon spacing
+========================= */
+
+.section-title i {
+    color: #16a34a;
+}

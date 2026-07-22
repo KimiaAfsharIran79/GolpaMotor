@@ -1,0 +1,49 @@
+﻿@model DomainModel.ViewModels.Product.ProductStatisticsModel
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body">
+                <h6 class="text-muted">کل محصولات</h6>
+                <h3 class="fw-bold text-primary">
+                    @Model.TotalProducts
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body">
+                <h6 class="text-muted">محصولات موجود</h6>
+                <h3 class="fw-bold text-success">
+                    @Model.AvailableProducts
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body">
+                <h6 class="text-muted">ناموجود</h6>
+                <h3 class="fw-bold text-danger">
+                    @Model.UnavailableProducts
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body">
+                <h6 class="text-muted">میانگین امتیاز</h6>
+                <h3 class="fw-bold text-warning">
+                    @Model.AveragePoint.ToString("0.0")
+                </h3>
+            </div>
+        </div>
+    </div>
+
+</div>

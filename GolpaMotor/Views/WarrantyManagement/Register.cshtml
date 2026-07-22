@@ -1,0 +1,294 @@
+﻿@model GolpaMotor.Models.ViewModels.WarrantyManagement.RegisterationCardViewModel
+
+@{
+    ViewData["Title"] = "ثبت گارانتی";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/CardRegisteratin.css" />
+}
+
+<div class="warranty-page">
+
+    <div class="warranty-card">
+
+        <div class="warranty-logo">
+            <img src="~/images/pics/logo.png" alt="Golpa Motor" />
+        </div>
+
+        <h1 class="warranty-title"> ثبت گارانتی محصولات </h1>
+       
+        <form asp-controller="WarrantyManagement" asp-action="Register" method="post">
+
+            @Html.AntiForgeryToken()
+
+            @* باکس نمایش خطا در کادر بالای فرم *@
+            @if (!ViewData.ModelState.IsValid && ViewData.ModelState[""]?.Errors.Any() == true)
+            {
+                <div class="alert alert-danger mb-3">
+
+                    @foreach (var error in ViewData.ModelState[""]!.Errors)
+                    {
+                        <div>@error.ErrorMessage</div>
+                    }
+
+                </div>
+            }
+
+            <div class="warranty-box">
+
+                <div class="box-title">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    اطلاعات گارانتی
+                </div>
+
+                <div id="cards-container">
+
+                    @for (int i = 0; i < Model.Cards.Count; i++)
+                    {
+                        <div class="card-item border rounded p-3 mb-3">
+
+                            <div class="row">
+
+                                <div class="col-md-5">
+
+                                    <label>شماره سریال
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <input asp-for="Cards[i].SerialNumber" maxlength="12" inputmode="numeric" class="form-control" placeholder="شماره سریال" />
+
+                                    <span asp-validation-for="Cards[i].SerialNumber" class="text-danger"></span>
+
+                                </div>
+
+                                <div class="col-md-5">
+
+                                    <label> کد گارانتی
+                                        <span class="required">*</span>
+                                    </label>
+
+                                    <input asp-for="Cards[i].ScratchedCode" class="form-control" placeholder="کد گارانتی" />
+
+                                    <span asp-validation-for="Cards[i].ScratchedCode" class="text-danger"></span>
+
+                                </div>
+
+                                <div class="col-md-2 d-flex align-items-end">
+
+                                    <button type="button" class="btn btn-danger remove-card"> <i class="fa fa-trash"></i> </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+
+                <div class="add-more-card-box">
+
+                    <div class="add-more-text">
+
+                        <div class="title">
+                            افزودن گارانتی دیگر
+                        </div>
+
+                        <div class="subtitle">
+                            در صورت داشتن بیش از یک گارانتی
+                        </div>
+
+                    </div>
+
+                    <button type="button"
+                            id="add-card"
+                            class="add-card-btn"
+                            title="افزودن کارت جدید">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                </div>
+
+            </div>            
+
+            <!-- شماره موبایل -->
+            <div class="warranty-group">
+
+                <label asp-for="CustomerPhoneNumber"> <i class="fa-solid fa-mobile-screen"></i>
+                    شماره موبایل
+                    <span class="required">*</span>
+                </label>
+
+                <input asp-for="CustomerPhoneNumber" inputmode="tel" maxlength="11" class="form-control" placeholder="09120000000" />
+
+                <span asp-validation-for="CustomerPhoneNumber" class="text-danger"> </span>
+
+            </div>
+
+            <!-- نقش مشتری -->
+            <div class="warranty-group">
+
+                <label> <i class="fa-solid fa-user-tag"></i>
+                    نقش شما 
+                    <span class="required">*</span>
+                </label>
+
+                <div class="customer-types">
+                    
+                    @foreach (var item in Model.CustomerTypes)
+                    {
+                        <label>
+                            <input type="checkbox" name="CustomerTypeIds" value="@item.CustomerTypeID"
+                                   checked="@Model.CustomerTypeIds.Contains(item.CustomerTypeID)" />
+                            @item.Title
+                        </label>
+                    }
+
+                </div>
+
+                <span asp-validation-for="CustomerTypeIds" class="text-danger"></span>
+
+            </div>
+
+            <!-- نام و نام خانوادگی -->
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="warranty-group">
+
+                        <label asp-for="FirstName"> <i class="fa-solid fa-user"></i>
+                            نام
+                        </label>
+
+                        <input asp-for="FirstName" class="form-control" placeholder="نام را وارد کنید" />
+
+                        <span asp-validation-for="FirstName" class="text-danger">  </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="warranty-group">
+
+                        <label asp-for="LastName"> <i class="fa-solid fa-user"></i>
+                            نام خانوادگی 
+                        </label>
+
+                        <input asp-for="LastName" class="form-control" placeholder="نام خانوادگی را وارد کنید" />
+
+                        <span asp-validation-for="LastName" class="text-danger"> </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button type="submit" class="warranty-submit">
+                <i class="fa-solid fa-check"></i>
+                ثبت و فعال سازی گارانتی
+            </button>
+
+        </form>
+       
+    </div>
+
+</div>
+
+@section Scripts
+{
+
+    @if (TempData["Success"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'عملیات موفق',
+                text: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["Success"])),
+                confirmButtonText: 'متوجه شدم',
+                confirmButtonColor: '#198754'
+            });
+        </script>
+    }
+
+    @* @if (ViewData["Error"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'خطا',
+                text: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewData["Error"])),
+                confirmButtonText: 'باشه',
+                confirmButtonColor: '#dc3545'
+            });
+        </script>
+    } *@
+
+
+    <script>
+        let index = @Model.Cards.Count;
+
+        document.getElementById("add-card").addEventListener("click", function () {
+
+            const html = `
+            <div class="card-item border rounded p-3 mb-3">
+
+                <div class="row">
+
+                    <div class="col-md-5">
+
+                        <label>شماره سریال</label>
+
+                            <input name="Cards[${index}].SerialNumber" class="form-control"
+                                   maxlength="12" inputmode="numeric" placeholder="شماره سریال"/>
+
+                    </div>
+
+                    <div class="col-md-5">
+
+                        <label>کد گارانتی</label>
+
+                        <input name="Cards[${index}].ScratchedCode" class="form-control"
+                               maxlength="12" inputmode="numeric" placeholder="کد گارانتی"/>
+
+                    </div>
+
+                    <div class="col-md-2 d-flex align-items-end">
+
+                        <button type="button" class="btn btn-danger remove-card">
+
+                            <i class="fa fa-trash"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>`;
+
+            document
+                .getElementById("cards-container").insertAdjacentHTML("beforeend", html);
+
+            index++;
+        });
+
+        document.addEventListener("click", function (e) {
+
+            if (e.target.closest(".remove-card")) {
+
+                e.target.closest(".card-item").remove();
+
+            }
+
+        });
+    </script>
+}
+

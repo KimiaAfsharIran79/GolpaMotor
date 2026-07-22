@@ -1,0 +1,101 @@
+@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+@{
+    var title = ViewData["Title"] ?? "Admin";
+}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@title - کنترل پنل</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/dist/css/rtl.css" />
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/bower_components/Ionicons/css/ionicons.min.css" />
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/dist/css/AdminLTE.css" />
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/dist/css/skins/skin-blue.min.css" />
+    <link rel="stylesheet" href="~/topkala-admin_c1l4/topkala-admin/dist/css/customize-adminlte.css" />
+    @RenderSection("Styles", required: false)
+
+</head>
+<body>
+    <div class="wrapper">
+
+        @await Html.PartialAsync("_AdminHeader")
+
+        @await Html.PartialAsync("_AdminSidebar")
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    @ViewData["Title"]
+                    <small></small>
+                </h1>
+                @RenderSection("Breadcrumb", required: false)
+            </section>
+        @* <section>
+            <div >
+                <partial name="_ManageNav" />
+            </div>
+        </section> *@
+            <section class="content container-fluid">
+                @RenderBody()
+            </section>
+        </div>
+
+        @await Html.PartialAsync("_AdminFooter")
+
+        <aside class="control-sidebar control-sidebar-dark">
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">فعالیت ها</h3>
+                </div>
+            </div>
+        </aside>
+
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+   
+
+
+<h1>Manage your account</h1>
+
+@* <div>
+    <h2>Change your account settings</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div> *@
+
+</body>
+</html>
+<script src="~/topkala-admin_c1l4/topkala-admin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="~/topkala-admin_c1l4/topkala-admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/topkala-admin_c1l4/topkala-admin/dist/js/adminlte.min.js"></script>
+
+ @RenderSection("Scripts", required: false)
+

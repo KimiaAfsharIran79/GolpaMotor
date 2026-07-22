@@ -1,0 +1,64 @@
+﻿@model GolpaMotor.Models.ViewModels.ProductManagement.ProductAddEditViewModel
+
+
+<form id="frmCreate" enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <label>نام محصول</label>
+
+            <input asp-for="ProductName" class="form-control" />
+
+        </div>
+
+        <div class="col-md-6">
+
+            <label>امتیاز محصول</label>
+
+            <input asp-for="ProductPoint" class="form-control" type="number" min="1" max="5" step="1" />
+
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+
+        <label>توضیحات</label>
+
+        <textarea asp-for="Description" class="form-control"></textarea>
+
+    </div>
+
+    <div class="mt-3">
+
+        <label>تصویر محصول</label>
+
+        <input asp-for="ImageFile" type="file" id="ImageFileCreate" class="form-control" />
+
+    </div>
+    <div class="text-center mt-3">
+
+        <img id="imgPreviewCreate"
+             class="img-fluid img-thumbnail preview-image" />
+
+    </div>
+
+    <div class="mt-3">
+
+        <input asp-for="IsAvailable" />
+
+        <label asp-for="IsAvailable"> فعال </label>
+
+    </div>
+
+    <div class="mt-4">
+
+        <button type="submit" class="btn btn-success"> ثبت </button>
+
+    </div>
+
+</form>

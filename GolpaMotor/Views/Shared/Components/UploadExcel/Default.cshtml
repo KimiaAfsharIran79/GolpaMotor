@@ -1,0 +1,34 @@
+﻿@model List<DomainModel.ViewModels.Product.ProductListItem>
+
+<form id="frmUploadExcel" enctype="multipart/form-data">
+
+    <div class="row g-3">
+
+        @* <div class="col-12">
+
+            <select id="ProductID" name="ProductID" class="form-select">
+                <option value=""> انتخاب محصول </option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.ProductID"> @item.ProductName </option>
+                }
+            </select>
+
+        </div> *@
+
+        <div class="col-12">
+            <input type="file" id="ExcelFile" name="ExcelFile" accept=".xlsx,.xls" class="form-control" />
+        </div>
+
+        <div class="col-12">
+
+            <button type="button" id="btnUploadExcel" class="btn btn-primary w-100">
+                <i class="fa-solid fa-upload me-1"></i>
+                آپلود فایل اکسل
+            </button>
+
+        </div>
+
+    </div>
+
+</form>

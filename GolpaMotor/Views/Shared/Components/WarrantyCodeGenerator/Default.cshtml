@@ -1,0 +1,84 @@
+﻿<!-- گارانتی -->
+<div class="col-lg-6">
+
+    <div class="card-box p-4">
+
+        <div class="section-title">
+            تولید کد تصادفی
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+
+                <label class="form-label"> بازه سریال از : </label>
+
+                <input id="SerialFrom" type="text" maxlength="12" inputmode="numeric" autocomplete="off" class="form-control" placeholder="مثال : 100000000001">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label"> تا : </label>
+
+                <input id="SerialTo" type="text" maxlength="12" inputmode="numeric" autocomplete="off" class="form-control" placeholder="مثال : 100000999999">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label"> بازه گارانتی از : </label>
+
+                <input id="WarrantyFrom" type="text" maxlength="12" inputmode="numeric" autocomplete="off" class="form-control" placeholder="مثال : 200000000001">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label"> تا : </label>
+
+                <input id="WarrantyTo" type="text" maxlength="12" inputmode="numeric" autocomplete="off" class="form-control" placeholder="مثال : 200000999999">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label"> تعداد : </label>
+
+                <input id="Count" type="number" min="1" max="100000" step="1" autocomplete="off" onkeydown="return event.key !== '-' && event.key !== 'e' && event.key !== 'E' && event.key !== '+'" 
+                        class="form-control" placeholder="مثال : 1000">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="form-label"> مدت اعتبار : </label>
+
+                <select id="ValidityMonths" class="form-select">
+
+                    <option value="6">6 ماه</option>
+
+                    <option value="12" selected>12 ماه</option>
+
+                    <option value="18">18 ماه</option>
+
+                    <option value="24">24 ماه</option>
+
+                    <option value="36">36 ماه</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-12">
+
+                <button id="btnGenerate" class="btn btn-primary w-100"> تولید کد </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,227 @@
+﻿:root {
+    --primary: #1e3a8a;
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+}
+
+/* ================= BODY ================= */
+body {
+    background: var(--bg);
+    font-family: Vazirmatn, Tahoma, sans-serif;
+}
+
+/* ================= CONTAINERS ================= */
+.top-select,
+.card-box,
+.filter-box,
+.table-box {
+    background: var(--card);
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: 0.25s;
+}
+
+/* ================= TOP SELECT ================= */
+.top-select {
+    padding: 12px;
+}
+
+/* ================= LABEL ================= */
+.product-label,
+.section-title {
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    width: 100%;
+}
+
+/* ================= CARD ================= */
+.card-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* ================= UPLOAD AREA ================= */
+.upload-area {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 35px;
+    text-align: center;
+    transition: .2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .upload-area:hover {
+        border-color: var(--primary);
+        background: #f8fafc;
+    }
+
+    .upload-area button {
+        width: auto !important;
+        margin: 0 auto;
+    }
+
+/* ================= INPUTS ================= */
+.form-control,
+.form-select {
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--primary);
+        box-shadow: none;
+    }
+
+/* ================= BUTTON ================= */
+.btn-primary {
+    border-radius: 10px;
+    background: var(--primary);
+    border: none;
+}
+
+    .btn-primary:hover {
+        background: #162a63;
+    }
+
+/* ================= FILTER ================= */
+.filter-box {
+    padding: 15px;
+}
+
+/* ================= TABLE BOX ================= */
+.table-box {
+    overflow: hidden;
+}
+
+/* ================= TABLE (UX UPGRADED) ================= */
+.table {
+    margin: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+    /* HEADER */
+    .table thead th {
+        background: var(--primary) !important;
+        color: #fff !important;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 14px;
+        border: none;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* ROW */
+    .table tbody tr {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        transition: 0.2s;
+    }
+
+        /* hover */
+        .table tbody tr:hover {
+            transform: translateY(-2px);
+            background: #f8fbff;
+        }
+
+    /* CELLS */
+    .table td {
+        border: none !important;
+        padding: 14px;
+        font-size: 13px;
+        text-align: center;
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* IMAGE */
+    .table img {
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+/* 🚫 IMPORTANT: NO HORIZONTAL SCROLL */
+.table-responsive {
+    overflow-x: hidden !important;
+}
+
+/* ================= STATUS ================= */
+.status-active {
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.status-inactive {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* ================= PAGINATION ================= */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-top: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.table-info {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.pagination {
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+    .pagination .page-link {
+        border-radius: 10px;
+        margin: 0 3px;
+        border: none;
+        background: #f1f5f9;
+        color: var(--primary);
+    }
+
+    .pagination .page-item.active .page-link {
+        background: var(--primary);
+        color: #fff;
+    }
+
+    .pagination .page-link:hover {
+        background: #e0e7ff;
+    }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:768px) {
+    .table-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

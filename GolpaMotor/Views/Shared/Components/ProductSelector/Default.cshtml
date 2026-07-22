@@ -1,0 +1,14 @@
+﻿@model List<DomainModel.ViewModels.Product.ProductListItem>
+
+<select id="ProductID" name="ProductID" class="form-select">
+
+    <option value=""> همه محصولات </option>
+
+    @foreach (var item in Model)
+    {
+        <option value="@item.ProductID">
+            @item.ProductName
+        </option>
+    }
+
+</select>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<DomainModel.ViewModels.Support.TicketListItem>
+
+@{
+    ViewData["Title"] = "تیکت های من";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Support.css" />
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h3>
+            تیکت های من
+        </h3>
+
+        <a asp-action="Create"
+           class="btn btn-success">
+
+            ثبت تیکت جدید
+
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+
+            هنوز هیچ تیکتی ثبت نشده است.
+
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover bg-white">
+
+            <thead>
+
+                <tr>
+
+                    <th>عنوان</th>
+
+                    <th>تاریخ ثبت</th>
+
+                    <th>وضعیت</th>
+
+                    <th>عملیات</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Title</td>
+
+                        <td>
+                            @item.CreateDate.ToString("yyyy/MM/dd")
+                        </td>
+
+                        <td>
+
+                            @if (item.IsAnswered)
+                            {
+                                <span class="badge bg-success">
+                                    پاسخ داده شده
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning">
+                                    در انتظار پاسخ
+                                </span>
+                            }
+
+                        </td>
+
+                        <td>
+
+                            <a asp-action="Details" asp-route-id="@item.SupportTicketID" class="btn btn-primary btn-sm">
+                                مشاهده
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    }
+
+</div>

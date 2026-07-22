@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DataAccess/DataAccess.csproj" />
+  <Project Path="DomainModel/DomainModel.csproj" />
+  <Project Path="Framework/Framework.csproj" Id="27c0bcf7-8711-45c4-bdf5-18429c1468b4" />
+  <Project Path="GolpaMotor/GolpaMotor.csproj" />
+</Solution>
